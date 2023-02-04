@@ -21,8 +21,6 @@ let img = undefined;
 let page = 1;
 let pagesLeft = 0;
 
-
-
 async function getImg(img) {
    const response = await axios.get(
       `https://pixabay.com/api/?key=${lineParameters.key}&q=${img}&image_type=${lineParameters.image_type}&orientation=${lineParameters.orientation}&safesearch=${lineParameters.safesearch}&page=${page}&per_page=${PER_PAGE}`
