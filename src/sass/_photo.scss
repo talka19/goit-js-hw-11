@@ -1,0 +1,37 @@
+.gallery {
+    padding-top: 68px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .photo-card {
+    width: 270px;
+    height: 215px;
+    border: 1px solid #586cad;
+    border-radius: 3px;
+    overflow: hidden;
+    
+  }
+  
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #000;
+    font-size: 10px;
+    }
+
+  .info-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .photo-img {
+    height: 165px;
+    overflow: hidden;
+  }
