@@ -8,6 +8,13 @@ import debounce from 'lodash.debounce';
 const form = document.querySelector("#search-form");
 const galleryEl = document.querySelector(".gallery");
 
+let lightbox = new SimpleLightbox('.gallery a', {  
+  captionsData: 'alt',
+  captionDelay: 250,
+  scrollZoom: false,
+});
+
+
 const lineParameters = {
     key:"33356007-e1ae8fd957b363ad4876a5fea",
     image_type:"photo",
@@ -41,7 +48,7 @@ async function onSubmitForm(e) {
      Notiflix.Notify.failure('Please, enter your search query.');
      return;
    }
-   try{response = await getImg(img);
+   try{const response = await getImg(img);
     // console.log(response.hits)
     pagesLeft = response.totalHits;
     if(response.totalHits === 0) {
@@ -60,7 +67,9 @@ async function onSubmitForm(e) {
           window.addEventListener('scroll', checkPosition);
         };
         lightbox.refresh();
-    } catch (error) {};
+    } catch (error) {
+      console.log(error);
+    };
 };
 
 // async function loadMorehandler() {
@@ -106,11 +115,6 @@ function renderPicture(picture) {
   `;
 }
 
-const lightbox = new SimpleLightbox('.gallery a', {  
-  captionsData: 'alt',
-  captionDelay: 250,
-  scrollZoom: false,
-});
 
 function smoothScroll() {
     const { height: cardHeight } = document
